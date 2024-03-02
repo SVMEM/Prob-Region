@@ -3,7 +3,7 @@ from telebot import types
 import datetime
 import pendulum
 import csv
-token = '6944176491:AAFutBEeym_NGP6p0gWx5_rGr_65FeglEE8'
+token = 'YOURTOKEN'
 bot = telebot.TeleBot(token)
 
 
@@ -103,7 +103,7 @@ def nick(message):
                 writer = csv.writer(fin)
                 usr = [message.from_user.id, message.from_user.username, message.text]
                 writer.writerow(usr)
-                bot.send_message(chat_id='726382042', text=f"{message.from_user.username} зарегался как {message.text}")
+                bot.send_message(chat_id='YOURCHATID', text=f"{message.from_user.username} зарегался как {message.text}")
                 #bot.send_document(message.chat.id, open('Пробный Муницип.pdf', "rb"))
                 msg = bot.send_message(message.chat.id, f"Очень приятно, {message.text}, для продолжения укажи, пожалуйста"
                                                   f", ФИО, почту, регион обучения (в каком городе школа), и класс обуче"
@@ -1041,7 +1041,7 @@ def ch4(message):
             bot.register_next_step_handler(msg1, ch4)
         elif message.document is not None:
             if message.document.file_name.endswith('.pdf'):
-                bot.forward_message('726382042', message.chat.id, message.message_id)
+                bot.forward_message('YOURCHATID', message.chat.id, message.message_id)
                 bot.send_message(message.chat.id, 'Принято, для того, чтоб отправить другой файл выберите эту часть еще раз'
                                                   ', проверен будет только последний отправленный файл. Вы можете выбра'
                                                   'ть другую часть или завершить работу.', reply_markup=markup)
