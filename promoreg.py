@@ -2,7 +2,7 @@ import csv
 import time
 import telebot
 
-token = '6944176491:AAFutBEeym_NGP6p0gWx5_rGr_65FeglEE8'
+token = 'YOURTOKEN'
 bot = telebot.TeleBot(token)
 
 with open('uu.csv', 'r') as fin:
